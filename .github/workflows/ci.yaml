@@ -1,43 +1,29 @@
+name: Test or Release
+
 on:
-  push:
-    branches:
-      - main
-  pull_request:
-    types: [assigned, opened, synchronize, reopened, labeled]
-  workflow_dispatch:
-name: ci
+  - push
+  - pull_request
+
 jobs:
-  test:
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        node: [10, 12, 14, 16, 18]
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node }}
-          cache: npm
-      - run: npm ci --engine-strict
-      - run: npm test
-  windows:
-    runs-on: windows-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
-          cache: npm
-      - run: npm ci
-      - run: npm test
-  coverage:
+  test-or-release:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
-          cache: npm
-      - run: npm ci
-      - run: npm run coverage
+    - name: Checkout
+      uses: actions/checkout@v3
+    - name: Install
+      uses: actions/setup-node@v3
+      with:
+        node-version: 'lts/*'
+        registry-url: 'https://registry.npmjs.org'
+    - name: Prepare
+      run: npm ci
+    - name: Test
+      run: npm test
+    - name: Publish
+      uses: cycjimmy/semantic-release-action@v3
+      with:
+        semantic_version: 19
+        branches: main
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

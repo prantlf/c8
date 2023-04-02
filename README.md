@@ -1,4 +1,4 @@
-# c8 - native V8 code-coverage
+# @prantlf/c8 - native V8 code-coverage
 
 [![ci](https://github.com/bcoe/c8/actions/workflows/ci.yaml/badge.svg)](https://github.com/bcoe/c8/actions/workflows/ci.yaml)
 ![nycrc config on GitHub](https://img.shields.io/nycrc/bcoe/c8)
@@ -10,11 +10,15 @@ that's compatible with [Istanbul's reporters](https://istanbul.js.org/docs/advan
 Like [nyc](https://github.com/istanbuljs/nyc), c8 just magically works:
 
 ```sh
-npm i c8 -g
+npm i @prantlf/c8 -g
 c8 node foo.js
 ```
 
 The above example will output coverage metrics for `foo.js`.
+
+This is a fork of the [original project] with the following changes:
+
+* If `excludeAfterRemap` is enabled, the code coverage stats were always set to 100. If the coverage of a source file was less than 100, setting the `excludeAfterRemap` flag to `true` made the result lost. ([462])
 
 ## CLI Options / Configuration
 
@@ -172,3 +176,6 @@ make sure you're running Node.js `>= 10.12.0`.
 ## Contributing to `c8`
 
 See the [contributing guide here](./CONTRIBUTING.md).
+
+[original project]: https://github.com/bcoe/c8
+[462]: https://github.com/bcoe/c8/issues/462
