@@ -1,0 +1,3 @@
+reject:
+  - find-up
+  - rimraf
