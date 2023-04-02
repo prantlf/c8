@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.13.1](https://github.com/prantlf/c8/compare/v7.13.0...v7.13.1) (2023-04-02)
+
+
+### Bug Fixes
+
+* Fix usage of excludeAfterRemap not to set the coverage always to 100 ([9113449](https://github.com/prantlf/c8/commit/9113449ba1e752eba9810b4f0b1fa2ad1cd0175d)), closes [#462](https://github.com/prantlf/c8/issues/462)
+* Upgrade dependencies ([985b219](https://github.com/prantlf/c8/commit/985b219e41b2101227032d0e0e4900be9a725399))
+
+
 ## [7.13.0](https://github.com/bcoe/c8/compare/v7.12.0...v7.13.0) (2023-02-14)
 
 
