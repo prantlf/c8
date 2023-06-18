@@ -1,3 +1,4 @@
 reject:
   - find-up
+  - foreground-child
   - rimraf
