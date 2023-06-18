@@ -1,5 +1,8 @@
 # @prantlf/c8 - native V8 code-coverage
 
+[![Latest version](https://img.shields.io/npm/v/@prantlf/c8)
+ ![Dependency status](https://img.shields.io/librariesio/release/npm/@prantlf/c8)
+](https://www.npmjs.com/package/@prantlf/c8)
 [![ci](https://github.com/bcoe/c8/actions/workflows/ci.yaml/badge.svg)](https://github.com/bcoe/c8/actions/workflows/ci.yaml)
 ![nycrc config on GitHub](https://img.shields.io/nycrc/bcoe/c8)
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://www.conventionalcommits.org/)
